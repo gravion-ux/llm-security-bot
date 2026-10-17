@@ -1,0 +1,32 @@
+{
+  "name": "llm-security-bot",
+  "version": "1.0.0",
+  "description": "Pattern-based static analyzer for code, log lines, and LLM input. Detects common prompt-injection patterns, insecure logging, hardcoded secrets, and unsafe shell calls. Deterministic; no model API calls in the core path.",
+  "main": "src/index.js",
+  "bin": {
+    "llm-sec": "src/cli.js"
+  },
+  "scripts": {
+    "test": "node --test test/detectors.test.js test/scanner.test.js test/cli.test.js",
+    "demo": "node src/cli.js demo"
+  },
+  "keywords": [
+    "security",
+    "llm",
+    "prompt-injection",
+    "static-analysis",
+    "secrets"
+  ],
+  "author": "Priyanshu Kumar Thakur",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "src/",
+    "test/",
+    "examples/",
+    "README.md",
+    "LICENSE"
+  ]
+}
