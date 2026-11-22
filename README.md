@@ -1,5 +1,9 @@
 # llm-security-bot
 
+![Demo](docs/demo.png)
+
+*Demo: the analyzer scanning sample code, logs and prompts, and reporting its findings.*
+
 A pattern-based static analyzer for code, log lines, and **LLM
 input** (prompts, tool inputs, retrieved documents). It detects:
 
