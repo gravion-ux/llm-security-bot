@@ -41,7 +41,20 @@ function walk(dir) {
 }
 
 function scanFile(file) {
-  const stat = fs.statSync(file);
+  let stat;
+  try {
+    stat = fs.statSync(file);
+  } catch (error) {
+    return [{
+      id: 'SCAN-FILE-UNREADABLE',
+      severity: 'INFO',
+      category: 'scanner',
+      path: file,
+      line: 0,
+      evidence: `File could not be read (${error.code || 'error'}); skipped.`,
+      remediation: 'Check the path and permissions, then re-run.',
+    }];
+  }
   if (stat.size > MAX_FILE_BYTES) {
     return [{
       id: 'SCAN-FILE-TOO-LARGE',
